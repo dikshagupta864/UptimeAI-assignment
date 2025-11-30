@@ -1,0 +1,298 @@
+<div class="github-profile">
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="header-left">
+        <button class="menu-btn">
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="#fff">
+            <path fill-rule="evenodd" d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"></path>
+          </svg>
+        </button>
+        <a href="/" class="logo">
+          <svg height="32" viewBox="0 0 16 16" width="32" fill="#fff">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+          </svg>
+        </a>
+        @if (user()) {
+          <span class="header-username">{{ user()!.login }}</span>
+        }
+      </div>
+      <div class="header-center">
+        <div class="search-wrapper">
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="#8b949e">
+            <path fill-rule="evenodd" d="M11.5 7a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm-.82 4.74a6 6 0 111.06-1.06l3.04 3.04a.75.75 0 11-1.06 1.06l-3.04-3.04z"></path>
+          </svg>
+          <input type="text" class="search-input" placeholder="Type / to search" />
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="icon-btn">
+          <svg viewBox="0 0 16 16" width="16" height="16" fill="#fff">
+            <path d="M8 16a2 2 0 001.985-1.75c.017-.137-.097-.25-.235-.25h-3.5c-.138 0-.252.113-.235.25A2 2 0 008 16zM3 5a5 5 0 0110 0v2.947c0 .05.015.098.042.139l1.703 2.555A1.518 1.518 0 0113.482 13H2.518a1.518 1.518 0 01-1.263-2.36l1.703-2.554A.255.255 0 003 7.947V5z"></path>
+          </svg>
+        </button>
+        @if (user()) {
+          <img [src]="user()!.avatar_url" alt="avatar" class="header-avatar" />
+        }
+      </div>
+    </div>
+  </header>
+
+  <!-- Underline Nav (Tabs) -->
+  <nav class="underline-nav">
+    <div class="underline-nav-content">
+      <button class="underline-nav-item" [class.selected]="activeTab() === 'overview'" (click)="setActiveTab('overview')">
+        <svg viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M0 1.75A.75.75 0 01.75 1h4.253c1.227 0 2.317.59 3 1.501A3.744 3.744 0 0111.006 1h4.245a.75.75 0 01.75.75v10.5a.75.75 0 01-.75.75h-4.507a2.25 2.25 0 00-1.591.659l-.622.621a.75.75 0 01-1.06 0l-.622-.621A2.25 2.25 0 005.258 13H.75a.75.75 0 01-.75-.75V1.75zm7.251 10.324l.004-5.073-.002-2.253A2.25 2.25 0 005.003 2.5H1.5v9h3.757a3.75 3.75 0 011.994.574zM8.755 4.75l-.004 7.322a3.752 3.752 0 011.992-.572H14.5v-9h-3.495a2.25 2.25 0 00-2.25 2.25z"></path></svg>
+        Overview
+      </button>
+      <button class="underline-nav-item" [class.selected]="activeTab() === 'repositories'" (click)="setActiveTab('repositories')">
+        <svg viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+        Repositories
+        @if (user()) { <span class="counter">{{ user()!.public_repos }}</span> }
+      </button>
+      <button class="underline-nav-item" [class.selected]="activeTab() === 'projects'" (click)="setActiveTab('projects')">
+        <svg viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M1.75 0A1.75 1.75 0 000 1.75v12.5C0 15.216.784 16 1.75 16h12.5A1.75 1.75 0 0016 14.25V1.75A1.75 1.75 0 0014.25 0H1.75zM1.5 1.75a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v12.5a.25.25 0 01-.25.25H1.75a.25.25 0 01-.25-.25V1.75zM11.75 3a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5a.75.75 0 00-.75-.75zm-8.25.75a.75.75 0 011.5 0v5.5a.75.75 0 01-1.5 0v-5.5zM8 3a.75.75 0 00-.75.75v3.5a.75.75 0 001.5 0v-3.5A.75.75 0 008 3z"></path></svg>
+        Projects
+      </button>
+      <button class="underline-nav-item" [class.selected]="activeTab() === 'packages'" (click)="setActiveTab('packages')">
+        <svg viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M8.878.392a1.75 1.75 0 00-1.756 0l-5.25 3.045A1.75 1.75 0 001 4.951v6.098c0 .624.332 1.2.872 1.514l5.25 3.045a1.75 1.75 0 001.756 0l5.25-3.045c.54-.313.872-.89.872-1.514V4.951c0-.624-.332-1.2-.872-1.514L8.878.392zM7.875 1.69a.25.25 0 01.25 0l4.63 2.685L8 7.133 3.245 4.375l4.63-2.685zM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432L2.5 5.677zm6.25 8.271l4.625-2.683a.25.25 0 00.125-.216V5.677L8.75 8.432v5.516z"></path></svg>
+        Packages
+        <span class="counter">5</span>
+      </button>
+      <button class="underline-nav-item" [class.selected]="activeTab() === 'stars'" (click)="setActiveTab('stars')">
+        <svg viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"></path></svg>
+        Stars
+        <span class="counter">6</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    @if (loading()) {
+      <div class="loading"><div class="spinner"></div><p>Loading profile...</p></div>
+    } @else if (error()) {
+      <div class="error-state"><p>{{ error() }}</p><button class="retry-btn" (click)="loadData()">Try again</button></div>
+    } @else if (user()) {
+      <div class="profile-layout">
+        <!-- Left Sidebar -->
+        <aside class="user-sidebar">
+          <div class="avatar-container">
+            <img [src]="user()!.avatar_url" alt="Profile picture" class="user-avatar" />
+          </div>
+          
+          <div class="user-names">
+            <h1 class="vcard-fullname">{{ user()!.name || user()!.login }}</h1>
+            <span class="vcard-username">{{ user()!.login }}</span>
+          </div>
+
+          @if (user()!.bio) {
+            <div class="user-bio">{{ user()!.bio }}</div>
+          }
+
+          <button class="edit-profile-btn">Edit profile</button>
+
+          <div class="user-stats">
+            <a href="#" class="user-stat">
+              <svg viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM2 5.5a3.5 3.5 0 115.898 2.549 5.507 5.507 0 013.034 4.084.75.75 0 11-1.482.235 4.001 4.001 0 00-7.9 0 .75.75 0 01-1.482-.236A5.507 5.507 0 013.102 8.05 3.49 3.49 0 012 5.5zM11 4a.75.75 0 100 1.5 1.5 1.5 0 01.666 2.844.75.75 0 00-.416.672v.352a.75.75 0 00.574.73c1.2.289 2.162 1.2 2.522 2.372a.75.75 0 101.434-.44 5.01 5.01 0 00-2.56-3.012A3 3 0 0011 4z"></path></svg>
+              <span><strong>{{ user()!.followers }}</strong> followers</span>
+            </a>
+            <span class="separator">·</span>
+            <a href="#" class="user-stat"><span><strong>{{ user()!.following }}</strong> following</span></a>
+          </div>
+
+          <ul class="vcard-details">
+            @if (user()!.company) {
+              <li class="vcard-detail">
+                <svg viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M1.5 14.25c0 .138.112.25.25.25H4v-1.25a.75.75 0 01.75-.75h2.5a.75.75 0 01.75.75v1.25h2.25a.25.25 0 00.25-.25V1.75a.25.25 0 00-.25-.25h-8.5a.25.25 0 00-.25.25v12.5zM1.75 16A1.75 1.75 0 010 14.25V1.75C0 .784.784 0 1.75 0h8.5C11.216 0 12 .784 12 1.75v12.5c0 .085-.006.168-.018.25h2.268a.25.25 0 00.25-.25V8.285a.25.25 0 00-.111-.208l-1.055-.703a.75.75 0 11.832-1.248l1.055.703c.487.325.779.871.779 1.456v5.965A1.75 1.75 0 0114.25 16h-3.5a.75.75 0 01-.197-.026c-.099.017-.2.026-.303.026h-3a.75.75 0 01-.75-.75V14h-1v1.25a.75.75 0 01-.75.75h-3zM3 3.75A.75.75 0 013.75 3h.5a.75.75 0 010 1.5h-.5A.75.75 0 013 3.75zM3.75 6a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM3 9.75A.75.75 0 013.75 9h.5a.75.75 0 010 1.5h-.5A.75.75 0 013 9.75zM7.75 9a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5zM7 6.75A.75.75 0 017.75 6h.5a.75.75 0 010 1.5h-.5A.75.75 0 017 6.75zM7.75 3a.75.75 0 000 1.5h.5a.75.75 0 000-1.5h-.5z"></path></svg>
+                <span>{{ user()!.company }}</span>
+              </li>
+            }
+            @if (user()!.location) {
+              <li class="vcard-detail">
+                <svg viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M11.536 3.464a5 5 0 010 7.072L8 14.07l-3.536-3.535a5 5 0 117.072-7.072v.001zm1.06 8.132a6.5 6.5 0 10-9.192 0l3.535 3.536a1.5 1.5 0 002.122 0l3.535-3.536zM8 9a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+                <span>{{ user()!.location }}</span>
+              </li>
+            }
+            @if (user()!.email) {
+              <li class="vcard-detail">
+                <svg viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M1.75 2A1.75 1.75 0 000 3.75v.736a.75.75 0 000 .027v7.737C0 13.216.784 14 1.75 14h12.5A1.75 1.75 0 0016 12.25v-8.5A1.75 1.75 0 0014.25 2H1.75zM14.5 4.07v-.32a.25.25 0 00-.25-.25H1.75a.25.25 0 00-.25.25v.32L8 7.88l6.5-3.81zm-13 1.74v6.441c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V5.809L8.38 9.397a.75.75 0 01-.76 0L1.5 5.809z"></path></svg>
+                <a href="mailto:{{ user()!.email }}">{{ user()!.email }}</a>
+              </li>
+            }
+            @if (user()!.blog) {
+              <li class="vcard-detail">
+                <svg viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg>
+                <a [href]="user()!.blog" target="_blank">{{ user()!.blog }}</a>
+              </li>
+            }
+            @if (user()!.twitter_username) {
+              <li class="vcard-detail">
+                <svg viewBox="0 0 16 16" width="16" height="16"><path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0016 3.542a6.658 6.658 0 01-1.889.518 3.301 3.301 0 001.447-1.817 6.533 6.533 0 01-2.087.793A3.286 3.286 0 007.875 6.03a9.325 9.325 0 01-6.767-3.429 3.289 3.289 0 001.018 4.382A3.323 3.323 0 01.64 6.575v.045a3.288 3.288 0 002.632 3.218 3.203 3.203 0 01-.865.115 3.23 3.23 0 01-.614-.057 3.283 3.283 0 003.067 2.277A6.588 6.588 0 010 13.027 9.286 9.286 0 005.026 15z"></path></svg>
+                <a [href]="'https://twitter.com/' + user()!.twitter_username" target="_blank">&#64;{{ user()!.twitter_username }}</a>
+              </li>
+            }
+          </ul>
+
+          <!-- Achievements -->
+          <div class="achievements-section">
+            <h2 class="section-header">Achievements</h2>
+            <div class="achievements-grid">
+              @for (achievement of achievements; track achievement.name) {
+                <div class="achievement-badge">
+                  <span class="achievement-icon">{{ achievement.icon }}</span>
+                  @if (achievement.level) { <span class="achievement-level">{{ achievement.level }}</span> }
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Organizations -->
+          <div class="orgs-section">
+            <h2 class="section-header">Organizations</h2>
+            <div class="org-avatars">
+              <img src="https://avatars.githubusercontent.com/u/0?v=4" alt="Org" class="org-avatar" />
+            </div>
+          </div>
+        </aside>
+
+        <!-- Right Content -->
+        <div class="main-column">
+          @if (activeTab() === 'overview') {
+            <!-- Popular Repositories -->
+            <div class="pinned-repos-section">
+              <div class="section-header-row">
+                <span>Popular repositories</span>
+                <a href="#" class="customize-link">Customize your pins</a>
+              </div>
+              <div class="repos-grid">
+                @for (repo of popularRepos; track repo.name) {
+                  <div class="repo-card">
+                    <div class="repo-card-header">
+                      <svg viewBox="0 0 16 16" width="16" height="16" class="repo-icon"><path fill-rule="evenodd" d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z"></path></svg>
+                      <a href="#" class="repo-name">{{ repo.name }}</a>
+                      <span class="repo-visibility">{{ repo.visibility }}</span>
+                    </div>
+                    @if (repo.isForked && repo.forkedFrom) {
+                      <p class="forked-from">Forked from <a href="#">{{ repo.forkedFrom }}</a></p>
+                    }
+                    <p class="repo-description">{{ repo.description }}</p>
+                    <div class="repo-meta">
+                      @if (repo.language) {
+                        <span class="repo-language">
+                          <span class="language-dot" [style.background-color]="repo.languageColor"></span>
+                          {{ repo.language }}
+                        </span>
+                      }
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+
+            <!-- Contribution Graph -->
+            <div class="contribution-section">
+              <div class="contribution-header">
+                <span>{{ totalContributions() }} contributions in the last year</span>
+                <div class="contribution-settings">
+                  <span>Contribution settings</span>
+                  <svg viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M4.427 7.427l3.396 3.396a.25.25 0 00.354 0l3.396-3.396A.25.25 0 0011.396 7H4.604a.25.25 0 00-.177.427z"></path></svg>
+                </div>
+              </div>
+              <div class="contribution-calendar">
+                <div class="calendar-graph">
+                  <div echarts [options]="chartOption()" class="calendar-chart"></div>
+                </div>
+                <div class="calendar-footer">
+                  <a href="#" class="learn-link">Learn how we count contributions</a>
+                  <div class="legend">
+                    <span>Less</span>
+                    <div class="legend-scale">
+                      <span class="legend-item" style="background-color: #161b22;"></span>
+                      <span class="legend-item" style="background-color: #0e4429;"></span>
+                      <span class="legend-item" style="background-color: #006d32;"></span>
+                      <span class="legend-item" style="background-color: #26a641;"></span>
+                      <span class="legend-item" style="background-color: #39d353;"></span>
+                    </div>
+                    <span>More</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Year Selector -->
+              <div class="year-selector">
+                @for (year of [2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018]; track year) {
+                  <button class="year-btn" [class.selected]="selectedYear() === year" (click)="selectedYear.set(year)">{{ year }}</button>
+                }
+              </div>
+            </div>
+
+            <!-- Activity Overview -->
+            <div class="activity-section">
+              <h2 class="section-title">Activity overview</h2>
+              <div class="activity-content">
+                <div class="activity-list">
+                  <div class="activity-item">
+                    <svg viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zm.5 4.75a.75.75 0 00-1.5 0v2.5h-2.5a.75.75 0 000 1.5h2.5v2.5a.75.75 0 001.5 0v-2.5h2.5a.75.75 0 000-1.5h-2.5v-2.5z"></path></svg>
+                    <span>Contributed to <a href="#">UptimeAI/uptime_webapp</a>, <a href="#">UptimeAI/uptime_server</a>, and 13 other repositories</span>
+                  </div>
+                </div>
+                <div class="activity-chart">
+                  <div class="donut-chart">
+                    <svg viewBox="0 0 100 100">
+                      <circle cx="50" cy="50" r="40" fill="none" stroke="#238636" stroke-width="20" stroke-dasharray="200 52" transform="rotate(-90 50 50)"></circle>
+                      <circle cx="50" cy="50" r="40" fill="none" stroke="#8957e5" stroke-width="20" stroke-dasharray="30 222" stroke-dashoffset="-200" transform="rotate(-90 50 50)"></circle>
+                    </svg>
+                    <div class="donut-center"><span class="donut-percent">83%</span><span class="donut-label">Commits</span></div>
+                  </div>
+                  <div class="chart-legend">
+                    <div class="legend-item-row"><span class="legend-dot" style="background: #238636;"></span> Code review</div>
+                    <div class="legend-item-row"><span class="legend-dot" style="background: #8957e5;"></span> Issues</div>
+                    <div class="legend-item-row"><span class="legend-dot" style="background: #3fb950;"></span> Pull requests</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contribution Activity -->
+            <div class="contribution-activity">
+              <h2 class="section-title">Contribution activity</h2>
+              <div class="activity-month">
+                <h3 class="month-header">October <span>2025</span></h3>
+                <div class="activity-entries">
+                  <div class="activity-entry">
+                    <div class="entry-icon commits"><svg viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M10.5 7.75a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zm1.43.75a4.002 4.002 0 01-7.86 0H.75a.75.75 0 110-1.5h3.32a4.001 4.001 0 017.86 0h3.32a.75.75 0 110 1.5h-3.32z"></path></svg></div>
+                    <div class="entry-content"><span>Created 56 commits in 11 repositories</span></div>
+                  </div>
+                  <div class="activity-entry">
+                    <div class="entry-icon prs"><svg viewBox="0 0 16 16" width="16" height="16"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"></path></svg></div>
+                    <div class="entry-content">
+                      <span>Opened 29 pull requests in 5 repositories</span>
+                      <ul class="pr-list">
+                        <li><span class="pr-repo">UptimeAI/uptime_webapp</span><span class="pr-badges"><span class="badge merged">19 merged</span><span class="badge open">4 open</span></span></li>
+                        <li><span class="pr-repo">UptimeAI/uptime_ml</span><span class="pr-badges"><span class="badge merged">2 merged</span></span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="show-more-activity"><button class="show-more-btn">Show more activity</button></div>
+          } @else {
+            <div class="tab-placeholder"><h3>{{ activeTab() | titlecase }}</h3><p>This section would show {{ activeTab() }} content.</p></div>
+          }
+        </div>
+      </div>
+    }
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content"><span>Seeing something unexpected? Take a look at the <a href="#">GitHub profile guide</a>.</span></div>
+    <div class="footer-links">
+      <svg height="24" viewBox="0 0 16 16" width="24" fill="#8b949e"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      <span>© 2025 GitHub, Inc.</span>
+      <a href="#">Terms</a><a href="#">Privacy</a><a href="#">Security</a><a href="#">Status</a><a href="#">Docs</a><a href="#">Contact</a>
+    </div>
+  </footer>
+</div>
